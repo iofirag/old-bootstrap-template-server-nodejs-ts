@@ -2,27 +2,29 @@
   "name": "ff-typescript-node",
   "version": "1.0.0",
   "description": "Basic demo of using Typescript on the server side",
-  "lib": ["es2015"],
+  "lib": [
+    "es2015"
+  ],
   "target": "es6",
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts localhost 8080"
   },
   "dependencies": {
-    "body-parser": "1.18.3",
-    "builtin-status-codes": "3.0.0",
-    "cors": "2.8.5",
-    "express": "4.16.4",
-    "mongoose": "5.4.8"
+    "body-parser": "^1.19.0",
+    "builtin-status-codes": "^3.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.4"
   },
   "devDependencies": {
-    "@types/body-parser": "1.17.0",
-    "@types/cors": "2.8.4",
-    "@types/express": "4.16.1",
-    "@types/node": "10.12.18",
-    "nodemon": "1.18.9",
-    "ts-node": "8.0.1",
-    "typescript": "3.2.4"
+    "@types/body-parser": "^1.17.1",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.1",
+    "@types/node": "^12.7.12",
+    "nodemon": "^1.19.3",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   },
   "keywords": []
 }
