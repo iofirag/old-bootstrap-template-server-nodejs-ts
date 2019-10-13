@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import * as mongoose from 'mongoose';
 //configuring connection to mongoLab
 // mongoose.set('useCreateIndex', true)
 const connection: Promise<typeof mongoose> = mongoose.connect(
