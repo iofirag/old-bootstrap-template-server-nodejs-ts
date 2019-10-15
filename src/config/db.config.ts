@@ -1,9 +1,9 @@
 import * as mongoose from 'mongoose';
+import { DbConnectionStr } from './../utils/consts';
+
 //configuring connection to mongoLab
 // mongoose.set('useCreateIndex', true)
-const connection: Promise<typeof mongoose> = mongoose.connect(
-  "mongodb://admin:Aa1234@ds243344.mlab.com:43344/synagogue-donations",
-  {
+const connection: Promise<typeof mongoose> = mongoose.connect(DbConnectionStr, {
     useCreateIndex: true,
     useNewUrlParser: true
   }

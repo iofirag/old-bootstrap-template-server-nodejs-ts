@@ -7,10 +7,11 @@ class Server {
   }
 
   private configureServer(): void {
-    // Configure server host+port
+    // Configure server host + port
     app.set("host", process.env.HOST || "localhost");
     app.set("port", process.env.PORT || 8080);
   }
+
   private createServer(): void {
     app.listen(app.get("port"), () => {
       console.log(
@@ -23,4 +24,5 @@ class Server {
     });
   }
 }
+
 new Server();
