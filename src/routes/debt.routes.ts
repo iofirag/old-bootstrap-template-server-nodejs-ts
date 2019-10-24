@@ -1,9 +1,9 @@
 // import { Router } from "express";
-// import { MemberController as cont } from "../controllers/member.controller";
+// import { ObligationController as cont } from "../controllers/obligation.controller";
 
-// export const memberRouter: Router = Router();
+// export const obligationRouter: Router = Router();
 
-// memberRouter
+// obligationRouter
 //   .post("/", cont.create)
 //   .get("/:_id", cont.getById)
 //   .put("/:_id", cont.updateById)

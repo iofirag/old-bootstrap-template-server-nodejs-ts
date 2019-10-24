@@ -1,12 +1,12 @@
 // import * as mongoose from "mongoose";
-// import { ObligationModel } from "./obligation.model";
+// // import { ObligationModel } from "./obligation.model";
 // import { SynagogueModel } from "./synagogue.model";
 
 // /* Schema */
-// const modelName = "MemberM";
-// const collectionName = "members";
+// const collectionName: string = "debts";
+// const modelName: string = collectionName.slice(0, collectionName.length-1)+`M`;
 
-// export const MemberModel = mongoose.model(
+// export const DebtModel = mongoose.model(
 //   modelName,
 //   new mongoose.Schema(
 //     {

@@ -1,13 +1,14 @@
 import { json, urlencoded } from "body-parser";
-import * as cors from "cors";
-import * as express from "express";
+import cors from "cors";
+import express from "express";
 import { Application } from "express";
 import { Routes } from "./routes/index";
+import { DBDriver } from "./config/db.config";
 // import { mainRouter } from "./routes/old-index";
-import "./config/db.config";
 
 class App {
   public app: Application;
+  public dbDriver: DBDriver = new DBDriver();
   public routePrv: Routes = new Routes();
 
   constructor() {
@@ -17,7 +18,9 @@ class App {
     this.mountRoutes();
   }
 
-  private applyConfigs(): void {}
+  private async applyConfigs() {
+    await this.dbDriver.connect();
+  }
   private applyMiddlewares(): void {
     this.app.use(cors());
     this.app.use(json());

@@ -8,7 +8,7 @@ synagogueRouter
   .get("/:_id", cont.getById)
   .put("/:_id", cont.updateById)
   .delete("/:_id", cont.deleteById)
-  .get("/test", cont.test);
+  // .get("/test", cont.test);
 // .post("/create", cont.create)
 // .post("/getById", cont.getById)
 // .post("/updateById", cont.updateById)

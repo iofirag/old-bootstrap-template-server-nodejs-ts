@@ -1,5 +1,5 @@
 // import * as mongoose from "mongoose";
-// import { ObligationModel } from "./obligation.model";
+// import { DebtModel } from "./debt.model";
 // import { SynagogueModel } from "./synagogue.model";
 
 // /* Schema */

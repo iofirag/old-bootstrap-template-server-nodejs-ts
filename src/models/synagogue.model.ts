@@ -1,26 +1,20 @@
 import * as mongoose from "mongoose";
+import { CollectionsNames } from "../config/db.config";
 
 /* Schema */
-const modelName: string = "SynagogueM";
-const collectionName: string = "synagogues";
 
 export const SynagogueModel = mongoose.model(
-  modelName,
-  new mongoose.Schema(
-    {
-      // id: { type: String, unique: true },
+  CollectionsNames.SYNAGOGUE,
+  new mongoose.Schema({
       name: { type: String, required: true },
       address: { type: String, required: true },
-      adminList: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: collectionName,
-          default: []
-        }
-      ]
-      // memberList: [],
-      // contact:
+      bankInfo: {
+        bankNumber: { type: Number },
+        branchNumber: { type: Number },
+        accountNumber: { type: Number },
+        accountName: { type: String },
+      }
     },
-    { collection: collectionName }
+    { collection: CollectionsNames.SYNAGOGUE }
   )
 );

@@ -1,8 +1,8 @@
 // import { Request, Response } from "express";
 // import GenericFunctions from "./genericFunctions";
-// import { UserModel as model } from "../models/user.model"; // Schema
+// import { RoleModel as model } from "../models/role.model"; // Schema
 
-// export class UserController {
+// export class RoleController {
 //   // ***************** CRUD *********************************
 //   public static create = async (req: Request, res: Response) => {
 //     const newItem = { ...req.body };
@@ -20,7 +20,7 @@
 //   };
 //   // *********************************************************
 //   public static test = async (req: Request, res: Response) => {
-//     const pageContent: string = `<h1>User test api 📑</h1>`;
-//     return /* not need await */ await res.status(200).send(pageContent);
+//     const pageContent: string = `<h1>Member test api 📑</h1>`;
+//     return /* not need await */ await res.send(pageContent);
 //   };
 // }

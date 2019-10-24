@@ -1,8 +1,8 @@
 // import { Request, Response } from "express";
 // import GenericFunctions from "./genericFunctions";
-// import { UserModel as model } from "../models/user.model"; // Schema
+// import { DebtModel as model } from "../models/debt.model"; // Schema
 
-// export class UserController {
+// export class DebtController {
 //   // ***************** CRUD *********************************
 //   public static create = async (req: Request, res: Response) => {
 //     const newItem = { ...req.body };
@@ -19,8 +19,8 @@
 //     return await GenericFunctions.deleteById(model, req, res);
 //   };
 //   // *********************************************************
-//   public static test = async (req: Request, res: Response) => {
-//     const pageContent: string = `<h1>User test api 📑</h1>`;
-//     return /* not need await */ await res.status(200).send(pageContent);
-//   };
+//   // public static test = async (req: Request, res: Response) => {
+//   //   const pageContent: string = `<h1>Obligation test api 📑</h1>`;
+//   //   return /* not need await */ await res.send(pageContent);
+//   // };
 // }
