@@ -1,47 +1,30 @@
 import mongoose from 'mongoose';
-
-
-const DBConfig = {
-  user: 'admin',
-  pass: '1234abcd',
-  url: 'ds235417.mlab.com',
-  port: 35417,
-  databaseName: 'praypay',
-};
-export const CollectionsNames = {
-  COUNTER: 'counter',
-  DEBT: 'debt',
-  MEMBER: 'member',
-  PAYMENT: 'payment',
-  ROLE: 'role',
-  SYNAGOGUE: 'synagogue',
-  USER: 'user'
-};
+import { DBConfig } from '../utils/consts';
 
 export class DBDriver {
   
   public connect = async () => {
     try {
+      mongoose.connection
+        .on('error', e => {
+          console.error(`connection error:`, e);  // Mongoose error message output
+        })
+        .once('open', () => {
+          console.log(`DB connected`);  // Once a connection is initiated
+        });
+    
       await mongoose.connect(
-        `mongodb://${DBConfig.user}:${DBConfig.pass}@${DBConfig.url}:${DBConfig.port}/${DBConfig.databaseName}`, {
+        `mongodb://${DBConfig.user}:${DBConfig.pass}@${DBConfig.url}:${DBConfig.port}/${DBConfig.databaseName}`, 
+        // 'mongodb://mongo:27017',
+        {
           useCreateIndex: true,
           useNewUrlParser: true,
           useUnifiedTopology: true
         }
       );
-  
-      mongoose.connection
-        .on('error', e => {
-          // Mongoose error message output
-          console.error(`connection error:`, e);
-          // console.error.bind(console, "connection error:"));
-        })
-        .once('open', () => {
-          // Once a connection is initiated - do the following
-          console.log(`DB connected`, mongoose.connection);
-        });
+      
     } catch (e) {
-      console.error(`connection error:`, e);
+      console.error(`exception while connecting to mongoDB:`, e);
     }
   }
 }

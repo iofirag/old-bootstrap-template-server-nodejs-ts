@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import GenericFunctions from "./genericFunctions";
 import { SynagogueModel as model } from "../models/synagogue.model";
 import { CounterController } from "./counter.controller";
-import { CollectionsNames } from "../config/db.config";
+import { CollectionsNames } from "../utils/consts";
 
 export class SynagogueController {
   // ***************** CRUD *********************************

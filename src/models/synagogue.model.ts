@@ -1,5 +1,5 @@
 import * as mongoose from "mongoose";
-import { CollectionsNames } from "../config/db.config";
+import { CollectionsNames } from "../utils/consts";
 
 /* Schema */
 
