@@ -6,16 +6,19 @@
     "es2015"
   ],
   "target": "es6",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "nodemon --exec ts-node src/index.ts localhost 8080"
+    "start": "nodemon --exec ts-node src/index.ts localhost 8080",
+    "dev": "nodemon src/index.ts",
+    "dev:debug": "nodemon --inspect src/index.ts"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "builtin-status-codes": "^3.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.7.4"
+    "mongoose": "^5.7.4",
+    "mongoose-auto-increment": "^5.0.1"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.1",

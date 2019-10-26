@@ -6,7 +6,8 @@ export const CounterModel = mongoose.model(
   CollectionsNames.COUNTER,
   new mongoose.Schema(
     {
-      sequenceValue: { type: Number, default: 0 },
+      _id: {type: String, required: true},
+      seq: { type: Number, default: 0 },
       created_at: { type: Date, default: Date.now } // membership date
     },
     { collection: CollectionsNames.COUNTER }

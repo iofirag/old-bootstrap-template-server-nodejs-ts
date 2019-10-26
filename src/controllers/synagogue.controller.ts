@@ -1,18 +1,17 @@
 import { Request, Response } from "express";
 import GenericFunctions from "./genericFunctions";
 import { SynagogueModel as model } from "../models/synagogue.model";
-import { CounterController } from "./counter.controller";
-import { CollectionsNames } from "../utils/consts";
+
 
 export class SynagogueController {
+
   // ***************** CRUD *********************************
   public static create = async (req: Request, res: Response) => {
-    const sequenceValue: number = await CounterController.getNextSequenceValue(`${CollectionsNames.SYNAGOGUE}Id`);
     const newItem = { 
       ...req.body,
-      _id: sequenceValue
+      id: null
     };
-    return await GenericFunctions.create(model, newItem, req, res, );
+    return await GenericFunctions.create(model, newItem, req, res);
   };
   public static getById = async (req: Request, res: Response) => {
     return await GenericFunctions.getById(model, req, res);
@@ -28,5 +27,5 @@ export class SynagogueController {
   // public static test = async (req: Request, res: Response) => {
   //   const pageContent: string = `<h1>Synagogue test api 📑</h1>`;
   //   return /* not need await */ await res.status(200).send(pageContent);
-  // };
+  // }; 
 }
