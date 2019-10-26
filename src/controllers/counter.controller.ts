@@ -22,11 +22,16 @@ export class CounterController {
   // *********************************************************
 
   public static getNextSequenceValue = async (sequenceName: string) => {
-    const sequenceDocument = await model.findOneAndUpdate({
-      filter:{_id: sequenceName },
-      update: {$inc:{seq:1}},
-      returnNewDocument: true
-    });
-    return sequenceDocument.seq;
+    let seq: number = 0;
+    const filter: any = {_id: 'synagogueId'};
+    const update: any = {$inc: { seq: 1} };
+    const options: any = {new: true, upsert: true};
+    try {
+      const sequenceDocument = await model.findByIdAndUpdate(filter, update, options);
+      seq = sequenceDocument.seq;
+    } catch (ex) {
+      console.error(ex)
+    }
+    return seq;
   }
 }

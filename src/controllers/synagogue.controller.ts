@@ -1,15 +1,18 @@
 import { Request, Response } from "express";
 import GenericFunctions from "./genericFunctions";
 import { SynagogueModel as model } from "../models/synagogue.model";
+import { CounterController } from "./counter.controller";
+import { CollectionsNames } from "../utils/consts";
 
 
 export class SynagogueController {
 
   // ***************** CRUD *********************************
   public static create = async (req: Request, res: Response) => {
+    const seq: number =  await CounterController.getNextSequenceValue(`${CollectionsNames.SYNAGOGUE}Id`);
     const newItem = { 
       ...req.body,
-      id: null
+      id: seq
     };
     return await GenericFunctions.create(model, newItem, req, res);
   };
