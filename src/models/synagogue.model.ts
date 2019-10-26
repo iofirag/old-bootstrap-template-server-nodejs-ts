@@ -4,20 +4,20 @@ import { CounterController } from "../controllers/counter.controller";
 
 
 /* Interface */
-export interface ISynagogue extends mongoose.Document {
-  id: Number,
-  name: String,
-  address?: String,
+interface ISynagogue extends mongoose.Document {
+  id: number,
+  name: string,
+  address?: string,
   bankInfo?: {
-    bankNumber?: Number,
-    branchNumber?: Number,
-    accountNumber?: Number,
-    accountName?: String,
+    bankNumber?: number,
+    branchNumber?: number,
+    accountNumber?: number,
+    accountName?: string,
   }
 };
 
 /* Schema */
-export const SynagogueSchema = new mongoose.Schema({
+const SynagogueSchema = new mongoose.Schema({
     id: { type: Number, unique: true },
     name: { type: String, required: true },
     address: { type: String, required: true },
