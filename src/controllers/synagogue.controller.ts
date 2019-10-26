@@ -9,11 +9,7 @@ export class SynagogueController {
 
   // ***************** CRUD *********************************
   public static create = async (req: Request, res: Response) => {
-    const seq: number =  await CounterController.getNextSequenceValue(`${CollectionsNames.SYNAGOGUE}Id`);
-    const newItem = { 
-      ...req.body,
-      id: seq
-    };
+    const newItem = { ...req.body };
     return await GenericFunctions.create(model, newItem, req, res);
   };
   public static getById = async (req: Request, res: Response) => {

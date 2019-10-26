@@ -23,7 +23,7 @@ export class CounterController {
 
   public static getNextSequenceValue = async (sequenceName: string) => {
     let seq: number = 0;
-    const filter: any = {_id: 'synagogueId'};
+    const filter: any = {_id: sequenceName};
     const update: any = {$inc: { seq: 1} };
     const options: any = {new: true, upsert: true};
     try {
