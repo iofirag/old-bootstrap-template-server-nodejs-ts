@@ -8,16 +8,20 @@ export class UserController {
     const newItem = { ...req.body };
     return await GenericFunctions.create(model, newItem, req, res);
   };
+  
   public static getById = async (req: Request, res: Response) => {
     return await GenericFunctions.getById(model, req, res);
   };
+  
   public static updateById = async (req: Request, res: Response) => {
     let updatedData = { ...req.body };
     return await GenericFunctions.updateById(model, updatedData, req, res);
   };
+  
   public static deleteById = async (req: Request, res: Response) => {
     return await GenericFunctions.deleteById(model, req, res);
   };
+
   // *********************************************************
   public static test = async (req: Request, res: Response) => {
     const pageContent: string = `<h1>User test api 📑</h1>`;
