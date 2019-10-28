@@ -1,15 +1,15 @@
-import mongoose from "mongoose";
+import { Document, Schema, Model, model} from "mongoose";
 import { CollectionsNames } from "../utils/consts";
 
 /* Interface */
-interface ICounter extends mongoose.Document {
+interface ICounter extends Document {
   _id: string,
   seq: number,
   created_at: Date
 };
 
 /* Schema */
-const CounterSchema = new mongoose.Schema({
+const CounterSchema = new Schema({
     _id: {type: String, required: true},
     seq: { type: Number, default: 0 },
     created_at: { type: Date, default: Date.now } // membership date
@@ -17,4 +17,4 @@ const CounterSchema = new mongoose.Schema({
   { collection: CollectionsNames.COUNTER }
 );
 
-export const CounterModel = mongoose.model<ICounter>(CollectionsNames.COUNTER, CounterSchema);
+export const CounterModel: Model<ICounter> = model<ICounter>(CollectionsNames.COUNTER, CounterSchema);

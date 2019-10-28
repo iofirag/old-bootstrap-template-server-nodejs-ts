@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import { Document, Schema, Model, model} from "mongoose";
 import { CollectionsNames } from "../utils/consts";
 import { CounterController } from "../controllers/counter.controller";
 
 
 /* Interface */
-interface ISynagogue extends mongoose.Document {
+interface ISynagogue extends Document {
   id: number,
   name: string,
   address?: string,
@@ -17,7 +17,7 @@ interface ISynagogue extends mongoose.Document {
 };
 
 /* Schema */
-const SynagogueSchema = new mongoose.Schema({
+const SynagogueSchema = new Schema({
     id: { type: Number, unique: true },
     name: { type: String, required: true },
     address: { type: String, required: true },
@@ -41,4 +41,4 @@ SynagogueSchema.pre('save', async function (next) {
   }
 });
 
-export const SynagogueModel = mongoose.model<ISynagogue>(CollectionsNames.SYNAGOGUE, SynagogueSchema);
+export const SynagogueModel: Model<ISynagogue> = model<ISynagogue>(CollectionsNames.SYNAGOGUE, SynagogueSchema);
