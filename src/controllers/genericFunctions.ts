@@ -49,6 +49,7 @@ export default class GenericFunctions {
       }
     );
   };
+  
   public static deleteById = async (
     model: any,
     req: Request,
