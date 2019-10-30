@@ -2,7 +2,6 @@ import { Document, Schema, Model, model } from 'mongoose';
 import { CollectionsNames } from "../utils/consts";
 
 const UserSchema: Schema = new Schema({
-    _id: { type: String, unique: true },
     email: { type: String },
     phone: { type: String },
     firstName: { type: String },
@@ -14,7 +13,6 @@ const UserSchema: Schema = new Schema({
 
 export const UserModel: Model<IUser> = model<IUser>(CollectionsNames.USER, UserSchema);
 export interface IUser extends Document {
-    _id: String,
     email: string,
     phone: string,
     firstName: string,
