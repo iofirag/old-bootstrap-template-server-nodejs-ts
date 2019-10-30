@@ -32,10 +32,9 @@ const SynagogueSchema = new Schema<ISynagogue>({
 );
 
 /* pre functions */
-SynagogueSchema.pre('save', async function (next) {
-  const doc: ISynagogue = this as ISynagogue;
+SynagogueSchema.pre<ISynagogue>('save', async function (next) {
   try {
-    doc.seq = await CounterController.getNextSequenceValue(`${CollectionsNames.SYNAGOGUE}Id`);
+    this.seq = await CounterController.getNextSequenceValue(`${CollectionsNames.SYNAGOGUE}Id`);
     next()
   } catch(ex) {
     return next(ex);
