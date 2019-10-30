@@ -1,12 +1,7 @@
-// import { DebtModel } from "./debt.model";
-import * as mongoose from "mongoose";
+import { Document, Schema, Model, model } from 'mongoose';
+import { CollectionsNames } from "../utils/consts";
 
-// /* User Schema */
-const modelName: string = "UserM";
-const collectionName: string = "users";
-
-export const UserModel = mongoose.model(modelName, new mongoose.Schema<User>({
-    // personalDetails
+const UserSchema: Schema = new Schema({
     _id: { type: String, unique: true },
     email: { type: String },
     phone: { type: String },
@@ -14,32 +9,11 @@ export const UserModel = mongoose.model(modelName, new mongoose.Schema<User>({
     lastName: { type: String },
     address: { type: String },
     creditCardToken: { type: String }
-    
-    // parents
-    // fatherName: { type: String },
-    // motherName: { type: String },
-    
-    // // fatherParents
-    // father_grandFatherName: { type: String },
-    // father_grandMotherName: { type: String },
-    
-    // // motherParents
-    // mother_grandFatherName: { type: String },
-    // mother_grandMotherName: { type: String },
-
-    // role: { type: String, default: "guest" },
-    // obligationList: [
-    // {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: DebtModel.collection.name
-    // }
-    // ],
-    // created_at: { type: Date, default: Date.now } // membership date
 }, 
-{ collection: collectionName }));
+{ collection: CollectionsNames.USER });
 
-
-export interface User {
+export const UserModel: Model<IUser> = model<IUser>(CollectionsNames.USER, UserSchema);
+export interface IUser extends Document {
     _id: String,
     email: string,
     phone: string,

@@ -2,7 +2,6 @@ import { Document, Schema, Model, model} from "mongoose";
 import { CollectionsNames } from "../utils/consts";
 import { CounterController } from "../controllers/counter.controller";
 
-
 /* Interface */
 interface ISynagogue extends Document {
   id: number,
