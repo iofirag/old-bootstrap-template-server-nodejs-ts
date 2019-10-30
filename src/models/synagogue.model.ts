@@ -4,7 +4,7 @@ import { CounterController } from "../controllers/counter.controller";
 
 /* Interface */
 interface ISynagogue extends Document {
-  id: number,
+  seq: number,
   name: string,
   address?: string,
   bankInfo?: {
@@ -16,8 +16,8 @@ interface ISynagogue extends Document {
 };
 
 /* Schema */
-const SynagogueSchema = new Schema({
-    id: { type: Number, unique: true },
+const SynagogueSchema = new Schema<ISynagogue>({
+    seq: { type: Number, unique: true },
     name: { type: String, required: true },
     address: { type: String, required: true },
     bankInfo: {
@@ -32,8 +32,9 @@ const SynagogueSchema = new Schema({
 
 /* pre functions */
 SynagogueSchema.pre('save', async function (next) {
+  const doc: ISynagogue = this as ISynagogue;
   try {
-    this.id = await CounterController.getNextSequenceValue(`${CollectionsNames.SYNAGOGUE}Id`);
+    doc.seq = await CounterController.getNextSequenceValue(`${CollectionsNames.SYNAGOGUE}Id`);
     next()
   } catch(ex) {
     return next(ex);
