@@ -6,11 +6,11 @@
     "es2015"
   ],
   "target": "es6",
-  "main": "src/index.ts",
+  "main": "praypayserver/index.ts",
   "scripts": {
-    "start": "nodemon --exec ts-node src/index.ts localhost 8080",
-    "dev": "nodemon src/index.ts",
-    "dev:debug": "nodemon --inspect src/index.ts"
+    "startnodemon": "nodemon --exec ts-node praypayserver/index.ts localhost 8080",
+    "dev": "nodemon praypayserver/index.ts",
+    "dev:debug": "nodemon --inspect praypayserver/index.ts"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

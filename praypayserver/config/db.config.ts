@@ -14,8 +14,8 @@ export class DBDriver {
         });
     
       await mongoose.connect(
-        `mongodb://${DBConfig.user}:${DBConfig.pass}@${DBConfig.url}:${DBConfig.port}/${DBConfig.databaseName}`, 
-        // 'mongodb://mongo:27017',
+        // `mongodb://${DBConfig.user}:${DBConfig.pass}@${DBConfig.url}:${DBConfig.port}/${DBConfig.databaseName}`, 
+        'mongodb://mongo/test',
         {
           useCreateIndex: true,
           useNewUrlParser: true,

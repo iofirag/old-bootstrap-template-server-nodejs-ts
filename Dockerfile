@@ -1,11 +1,20 @@
-FROM node:carbon
+# web-service Dockerfile
+
+FROM node
 # Create app directory
 WORKDIR /usr/src/app
-# Install app dependencies
-COPY package*.json ./
-RUN npm install
+
 # Copy app source code
-COPY . .
+COPY package*.json .
+# COPY . .
+# Install app dependencies
+RUN npm install 
+# --unsafe-perm=true --allow-root
+
+COPY ./praypayserver .
+
 #Expose port and start application
-EXPOSE 8080
-CMD [ "npm", "start" ]
+EXPOSE 3000
+
+CMD [ "npm", "start" ] 
+# ts-node src/index.ts localhost 8080
